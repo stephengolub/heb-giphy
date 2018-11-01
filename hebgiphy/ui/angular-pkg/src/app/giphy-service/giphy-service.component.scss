@@ -1,0 +1,32 @@
+$width-threshold: 480px;
+
+.mat-toolbar {
+  position: relative;
+  margin-bottom: 5px;
+  .mat-icon-button {
+    position: absolute;
+    right: 10px;
+  }
+
+  .pull-right {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+
+  .smaller-screens {
+    @media only screen and (min-width: $width-threshold) {
+      display: none;
+    }
+  }
+
+  .larger-screens {
+    @media only screen and (max-width: $width-threshold) {
+      display: none;
+    }
+  }
+}
+
+.modal-data {
+  text-align: center;
+}

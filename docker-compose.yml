@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  HEBGiphyApp:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: result/latest
+    env_file: app-config.env
+    environment:
+      - COMPOSE_PROJECT_NAME=HEBGiphyApp
+      - COMMON_MAIN_SERVER_HOST=0.0.0.0
+      - COMMON_MAIN_SERVER_PORT=8000
+    volumes:
+      - './db.sqlite3:/app/db.sqlite3'
+    ports:
+      - 8000:8000

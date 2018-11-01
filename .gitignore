@@ -1,0 +1,16 @@
+.DS_Store
+
+.*.sw*
+
+.vscode
+
+.ropeproject/
+
+__pycache__/
+*.pyc
+*.egg-info
+.python-version
+
+venv/
+
+node_modules

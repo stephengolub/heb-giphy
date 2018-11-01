@@ -1,0 +1,35 @@
+<mat-toolbar color="primary">
+  <span>Giphy Search</span>
+  <span flex></span>
+  <div class="larger-screens pull-right">
+    <button mat-button (click)="showFavorites()">
+      <mat-icon>favorite</mat-icon>Favorites
+    </button>
+  </div>
+  <div class="smaller-screens pull-right">
+    <button mat-icon-button [matMenuTriggerFor]="appMenu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #appMenu="matMenu">
+      <button mat-menu-item (click)="showFavorites()">
+        <mat-icon>favorite</mat-icon>Favorites
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>
+<div class="giphy-search">
+  <div class="search-area">
+    <input type="text" #queryBox [ngModel]="query" (keyup.enter)="onEnter(queryBox.value)"/>
+  </div>
+  <div class="results-area">
+    <span *ngIf="!query"><i>Enter search query</i></span>
+    <div *ngIf="query">
+      <h2>{{ query }}</h2>
+      <span class="total">{{ totalImages }} gifs</span>
+      <div class="results">
+        <app-giphy *ngFor="let gif of displayedData" [gif]="gif"></app-giphy>
+        <div class="loading" *ngIf="loading">Loading more Fun!</div>
+      </div>
+      <button mat-raised-button color="primary" *ngIf="morePages" (click)="loadMore()">Load More...</button>
+  </div>
+</div>

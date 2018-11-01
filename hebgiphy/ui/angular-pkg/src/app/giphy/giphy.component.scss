@@ -1,0 +1,17 @@
+.giphy-gif {
+  display: inline-block;
+  margin: 2px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+
+  .giphy-img {
+    max-height: 200px;
+    max-width: 200px;
+    margin: 0 auto;
+    &.zoomed {
+      max-width: none !important;
+      max-height: none !important;
+    }
+  }
+}

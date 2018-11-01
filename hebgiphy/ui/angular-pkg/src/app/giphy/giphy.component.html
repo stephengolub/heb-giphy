@@ -1,0 +1,15 @@
+<div class="giphy-gif">
+  <img class="giphy-img" [class.zoomed]="zoomed" src="{{ gif.giphy_direct_url }}" (click)="zoom()">
+  <mat-chip-list>
+    <mat-chip *ngFor="let tag of gif.giphy_tags">{{ tag.name }}</mat-chip>
+  </mat-chip-list>
+  <a mat-icon-button href="{{ gif.giphy_url }}" target="_blank">
+    <mat-icon>open_in_new</mat-icon>
+  </a>
+  <button mat-icon-button (click)="toggleFavorite()" title="Favorite this Gif">
+    <mat-icon>{{ isFavorite() ? 'favorite' : 'favorite_border' }}</mat-icon>
+  </button>
+  <button mat-icon-button *ngIf="isFavorite()" (click)="showTags()">
+    <mat-icon>label</mat-icon>
+  </button>
+</div>
